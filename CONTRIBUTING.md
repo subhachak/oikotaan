@@ -19,7 +19,7 @@ with everything already working. Skip to "Making a change".
 On your own laptop:
 
 ```bash
-git clone https://github.com/YOUR-ORG/oikotaan.git
+git clone https://github.com/subhachak/oikotaan.git
 cd oikotaan
 npm install
 npm run dev

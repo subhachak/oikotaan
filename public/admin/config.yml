@@ -6,11 +6,13 @@
 
 backend:
   name: github
-  repo: YOUR-GITHUB-ORG/oikotaan # change me
+  # Moving this repository into an organisation account changes this line,
+  # and the OAuth app below has to be re-pointed at the new owner.
+  repo: subhachak/oikotaan
   branch: main
   # One-time setup: deploy the sveltia-cms-auth Cloudflare Worker and put its
   # URL here. See README, "Wiring up the content editor".
-  base_url: https://YOUR-AUTH-WORKER.workers.dev
+  base_url: https://YOUR-AUTH-WORKER.workers.dev # still to deploy, see README
 
 # Editors get a preview branch and a pull request instead of committing to main
 # directly, which means the same deploy preview the kids use.
