@@ -21,18 +21,29 @@ Netlify  ──► www.oikotaan.org
 You need Node 22. The version is pinned in `.nvmrc`, so `nvm use` picks it up.
 
 ```bash
-npm install
-npm run dev
+./run.sh start
 ```
 
-Open http://localhost:4321. The page reloads as you save.
+That installs dependencies if they are stale, takes port 4321, starts the dev
+server in the background and opens the site. Edits reload as you save.
 
-| Command           | What it does                                                     |
-| ----------------- | ---------------------------------------------------------------- |
-| `npm run dev`     | Local site with live reload                                      |
-| `npm run build`   | Type-checks and builds into `dist/`. This is what Netlify runs.  |
-| `npm run preview` | Serves the built site, to check it before opening a pull request |
-| `npm run format`  | Reformats every file with Prettier                               |
+| Command            | What it does                                                             |
+| ------------------ | ------------------------------------------------------------------------ |
+| `./run.sh start`   | Dev server in the background, browser opened                             |
+| `./run.sh stop`    | Stops it, and waits for the port to actually come free                   |
+| `./run.sh restart` |                                                                          |
+| `./run.sh status`  | Pid, port, and a request against each route so you see what is answering |
+| `./run.sh logs`    | Follows the dev server log                                               |
+| `./run.sh admin`   | Opens the content editor at /admin                                       |
+| `./run.sh build`   | Type-checks and builds into `dist/`. This is what Netlify runs.          |
+| `./run.sh preview` | Builds, then serves `dist/` on :4322 the way Netlify will                |
+| `./run.sh check`   | What CI runs, plus formatting. Run it before opening a pull request.     |
+| `./run.sh clean`   | Drops `dist/`, `.astro/` and the Vite cache                              |
+
+The underlying npm scripts (`npm run dev`, `build`, `preview`, `format`) still
+work if you prefer them. `run.sh` exists because the dev server in the
+background, the port taken rather than quietly moved, and one command that tells
+you whether CI will pass are all things you otherwise rediscover by hand.
 
 **No install, no laptop setup:** open the repo on GitHub, press `.`, or use the
 green **Code** button → **Codespaces**. `.devcontainer/devcontainer.json` installs
@@ -52,6 +63,7 @@ src/
   pages/admin/          The content editor, served at /admin
   styles/global.css     Colours and fonts, defined once as Tailwind tokens.
   lib/dates.ts          Date formatting, including the UTC handling events depend on.
+run.sh                  Start, stop, check and build the site locally.
 public/
   admin/config.yml      What the editor shows in its form. Read at runtime, not build time.
   images/uploads/       Images. Keep every file under 200KB.
