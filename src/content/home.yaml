@@ -1,0 +1,43 @@
+# The homepage's editable content, read by src/pages/index.astro.
+# Edit this by hand, or through the "Home Page" entry at /admin — both write
+# to this same file. See src/content.config.ts for the schema this is
+# checked against at build time.
+hero:
+  kicker: "ঐকতান"
+  heading: "Celebrating Bengali culture, language and community in New Jersey."
+  description: >-
+    A volunteer-run 501(c)(3) nonprofit bringing Bengali families across New
+    Jersey together through cultural programs, language classes and
+    community service.
+  image: /images/site/hero-dance.jpg
+  imageAlt: Young dancers in sequined costumes performing on stage at an Oikotaan program
+
+programs:
+  - icon: flame
+    title: Cultural programs
+    description: Pujas, performances and festivals that bring the community together all year.
+  - icon: book
+    title: Language classes
+    description: Bengali reading, writing and conversation for kids growing up outside Bengal.
+  - icon: heart
+    title: Community service
+    description: Volunteering and mutual aid for Bengali families settling into New Jersey.
+
+gallery:
+  - image: /images/site/gallery-saraswati.jpg
+    alt: Saraswati Puja altar decorated with marigold garlands and paper flowers
+  - image: /images/site/gallery-stage-program.jpg
+    alt: Children performing a cultural program on stage
+  - image: /images/site/gallery-classical-dance.jpg
+    alt: A classical dance duo performing in blue and gold costumes
+  - image: /images/site/gallery-volunteers.jpg
+    alt: Volunteers holding handmade paper flowers used to decorate a puja stage
+  - image: /images/site/gallery-music-night.jpg
+    alt: Two members sharing a moment at a live music performance
+
+contact:
+  heading: Say hello
+  body: >-
+    New to the area, curious about Bengali classes for your children, or
+    looking to volunteer? Send us a note and one of us will reply. We are
+    all volunteers, so give us a few days.

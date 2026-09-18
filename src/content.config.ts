@@ -47,4 +47,52 @@ const events = defineCollection({
   }),
 });
 
-export const collections = { events };
+/**
+ * The homepage's editable content: everything a committee member should be
+ * able to change without a pull request. Structural stuff — nav links, the
+ * contact form's fields, org-wide settings like email and social links —
+ * stays in src/site.config.ts, since that isn't page content, it's identity.
+ *
+ * src/content/home.yaml is a singleton: one file, glob-loaded the same way
+ * events are, so its id is the filename ("home") and its data is the file's
+ * content verbatim. That matters because the CMS (public/admin/config.yml)
+ * reads and writes that file as a plain object matching the fields below —
+ * an extra wrapping key here would round-trip fine in Astro but show up as
+ * an empty form in the CMS, since it writes to the top level directly.
+ */
+const home = defineCollection({
+  loader: glob({ pattern: "home.yaml", base: "./src/content" }),
+  schema: z.object({
+    hero: z.object({
+      kicker: z.string(),
+      heading: z.string(),
+      description: z.string(),
+      image: z.string(),
+      imageAlt: z.string(),
+    }),
+
+    // One icon per program pillar, picked from a small fixed set drawn in
+    // index.astro. Adding a new icon choice means adding it there too.
+    programs: z.array(
+      z.object({
+        icon: z.enum(["flame", "book", "heart"]),
+        title: z.string(),
+        description: z.string(),
+      }),
+    ),
+
+    gallery: z.array(
+      z.object({
+        image: z.string(),
+        alt: z.string(),
+      }),
+    ),
+
+    contact: z.object({
+      heading: z.string(),
+      body: z.string(),
+    }),
+  }),
+});
+
+export const collections = { events, home };

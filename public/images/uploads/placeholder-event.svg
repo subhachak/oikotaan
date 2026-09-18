@@ -6,10 +6,13 @@
     <circle cx="480" cy="70" r="16"/><circle cx="540" cy="55" r="16"/><circle cx="600" cy="70" r="16"/>
     <circle cx="660" cy="55" r="16"/>
   </g>
-  <text x="400" y="250" text-anchor="middle" font-family="Helvetica, Arial, sans-serif"
-        font-size="30" fill="#c1272d">Replace me</text>
-  <text x="400" y="296" text-anchor="middle" font-family="Helvetica, Arial, sans-serif"
-        font-size="18" fill="#5a4f47">Put your image in public/images/uploads/</text>
-  <text x="400" y="324" text-anchor="middle" font-family="Helvetica, Arial, sans-serif"
-        font-size="18" fill="#5a4f47">and keep it under 200KB</text>
+  <g stroke="#c1272d" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" fill="none">
+    <rect x="345" y="195" width="110" height="80" rx="8"/>
+    <circle cx="400" cy="235" r="18"/>
+    <path d="M355 210 365 195 435 195 445 210"/>
+  </g>
+  <text x="400" y="320" text-anchor="middle" font-family="Helvetica, Arial, sans-serif"
+        font-size="24" fill="#5a4f47">Photo coming soon</text>
+  <text x="400" y="352" text-anchor="middle" font-family="Helvetica, Arial, sans-serif"
+        font-size="14" fill="#8a7f76">Editors: add one in public/images/uploads/, under 200KB</text>
 </svg>

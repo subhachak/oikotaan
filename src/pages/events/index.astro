@@ -18,6 +18,15 @@ const upcoming = events
 const past = events
   .filter(({ data }) => !isUpcoming(data.date, data.endDate))
   .sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
+
+// A grid built for three cards looks unfinished with one or two, so the
+// column count and a width cap track how many are actually there.
+function gridClasses(count: number) {
+  const cols =
+    count === 1 ? "sm:grid-cols-1" : count === 2 ? "sm:grid-cols-2" : "sm:grid-cols-2 lg:grid-cols-3";
+  const width = count === 1 ? "max-w-sm" : count === 2 ? "max-w-3xl" : "";
+  return ["mt-6 grid gap-6", cols, width];
+}
 ---
 
 <BaseLayout
@@ -26,16 +35,18 @@ const past = events
 >
   <Container class="py-12 sm:py-16">
     <h1 class="text-3xl font-bold text-ink sm:text-4xl">Events</h1>
-    <p class="mt-3 max-w-2xl text-lg leading-relaxed text-ink-soft">
+    <span class="mt-3 block h-1 w-16 rounded-full bg-marigold-500" aria-hidden="true"></span>
+    <p class="mt-4 max-w-2xl text-lg leading-relaxed text-ink-soft">
       Pujas, cultural programs, picnics and classes. Everything here is open to the whole community,
       members and newcomers alike.
     </p>
 
     <section class="mt-12">
       <h2 class="text-2xl font-bold text-ink">Upcoming</h2>
+      <span class="mt-2 block h-1 w-16 rounded-full bg-marigold-500" aria-hidden="true"></span>
       {
         upcoming.length > 0 ? (
-          <div class="mt-6 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          <div class:list={gridClasses(upcoming.length)}>
             {upcoming.map((event) => (
               <EventCard event={event} />
             ))}
@@ -53,7 +64,8 @@ const past = events
       past.length > 0 && (
         <section class="mt-16">
           <h2 class="text-2xl font-bold text-ink">Past events</h2>
-          <div class="mt-6 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          <span class="mt-2 block h-1 w-16 rounded-full bg-marigold-500" aria-hidden="true"></span>
+          <div class:list={gridClasses(past.length)}>
             {past.map((event) => (
               <EventCard event={event} />
             ))}
@@ -64,7 +76,8 @@ const past = events
 
     <section class="mt-16">
       <h2 class="text-2xl font-bold text-ink">Community calendar</h2>
-      <p class="mt-2 max-w-2xl text-ink-soft">
+      <span class="mt-2 block h-1 w-16 rounded-full bg-marigold-500" aria-hidden="true"></span>
+      <p class="mt-4 max-w-2xl text-ink-soft">
         Rehearsals, committee meetings and class schedules. Subscribe from the calendar itself to
         get them on your phone.
       </p>

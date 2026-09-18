@@ -15,7 +15,7 @@ export const site = {
     "A volunteer-run 501(c)(3) nonprofit bringing Bengali families across New Jersey together through cultural programs, language classes and community service.",
 
   email: "hello@oikotaan.org",
-  town: "Edison, New Jersey",
+  town: "6 Matthew Road, Hillsborough, NJ 08844",
 
   social: {
     facebook: "https://facebook.com/",

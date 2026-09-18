@@ -13,12 +13,13 @@ const current = Astro.url.pathname.replace(/\/+$/, "") || "/";
          organisation name refuses to give up width, the nav is pushed past the
          right edge, and the whole page scrolls sideways on a phone. -->
     <a href="/" class="group flex min-w-0 items-center gap-3">
-      <span
-        class="grid h-10 w-10 shrink-0 place-items-center rounded-full bg-sindoor-600 font-serif text-lg text-white sm:h-11 sm:w-11 sm:text-xl"
-        aria-hidden="true"
-      >
-        ঐ
-      </span>
+      <img
+        src="/images/logo.jpg"
+        alt=""
+        width="44"
+        height="44"
+        class="h-10 w-10 shrink-0 rounded-full ring-1 ring-sindoor-100 sm:h-11 sm:w-11"
+      />
       <span class="min-w-0 leading-tight">
         <!-- The full name does not fit beside the nav on a 375px screen, so
              phones get the initials and everything else gets the name. Both are

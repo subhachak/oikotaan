@@ -22,6 +22,64 @@ media_folder: public/images/uploads
 public_folder: /images/uploads
 
 collections:
+  - name: pages
+    label: Pages
+    files:
+      - name: home
+        label: Home Page
+        file: src/content/home.yaml
+        fields:
+          - label: Hero
+            name: hero
+            widget: object
+            fields:
+              - { name: kicker, label: Kicker (Bengali script), widget: string }
+              - { name: heading, label: Headline, widget: text }
+              - { name: description, label: Description, widget: text }
+              - {
+                  name: image,
+                  label: Photo,
+                  widget: image,
+                  media_folder: public/images/site,
+                  public_folder: /images/site,
+                }
+              - {
+                  name: imageAlt,
+                  label: Describe the photo for screen readers,
+                  widget: string,
+                }
+          - label: Programs (3 pillars under the hero)
+            name: programs
+            widget: list
+            summary: "{{fields.title}}"
+            fields:
+              - { name: icon, label: Icon, widget: select, options: [flame, book, heart] }
+              - { name: title, label: Title, widget: string }
+              - { name: description, label: Description, widget: text }
+          - label: Gallery (From our events)
+            name: gallery
+            widget: list
+            summary: "{{fields.alt}}"
+            fields:
+              - {
+                  name: image,
+                  label: Photo,
+                  widget: image,
+                  media_folder: public/images/site,
+                  public_folder: /images/site,
+                }
+              - {
+                  name: alt,
+                  label: Describe the photo for screen readers,
+                  widget: string,
+                }
+          - label: Contact section
+            name: contact
+            widget: object
+            fields:
+              - { name: heading, label: Heading, widget: string }
+              - { name: body, label: Body text, widget: text }
+
   - name: events
     label: Events
     label_singular: Event
