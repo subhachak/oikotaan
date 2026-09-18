@@ -18,6 +18,10 @@ Netlify  ──► www.oikotaan.org
 
 ## Running it locally
 
+New contributors can follow the step-by-step [Teen Contributor Manual](TEEN_MANUAL.md),
+which covers computer setup, VS Code, Git branches, local previews, checks, and
+pull requests.
+
 You need Node 22. The version is pinned in `.nvmrc`, so `nvm use` picks it up.
 
 ```bash
